@@ -1,0 +1,95 @@
+library(xlsx)
+rdata<-read.xlsx("RAWDATA.xlsx",sheetIndex = 1)
+str(rdata)
+rdata$SIZE.ACRES<-as.numeric(rdata$SIZE.ACRES)
+summary(rdata)
+library(ggplot2)
+library(lubridate)
+library(plotly)
+
+ggplot(rdata,aes(x=Crime,fill=Crime))+geom_bar()
+table(rdata$Crime)
+round(prop.table(table(rdata$Crime)),2)*100
+#95% of Crime : 
+# Grand Larceny - 44%
+# Robbery - 33%
+# Felony Assault - 18 %
+
+ggplot(rdata,aes(x=Crime,fill=Crime))+geom_bar()+facet_wrap(~BOROUGH)
+
+round(prop.table(table(rdata$BOROUGH))*100,2)
+#The below locations contributes 79% Crimes.
+#Manhattan - 30% 
+#Brooklyn - 27 %
+#Bronx - 22%
+
+round(prop.table(table(rdata$Crime,rdata$BOROUGH))*100,2)
+#Manhattan - 30% ( 17% - Grand Larceny , 7% - Robbery, 4% - Felony Assault)
+#Brooklyn - 27% ( 12% - Grand Larceny, Robbery - 9%,5% - Felony Assault)
+#Bronx - 22% (9% - Robbery,6%- Felony Assault , 5%- Grand Larceny)
+
+rdata$Period <- factor(rdata$Period, 
+                      levels = c('Q3- 2014','Q4-2014','Q1- 2015','Q2 - 2015','Q3- 2015','Q4-2015','Q1- 2016','Q2 - 2016','Q3- 2016','Q4-2016','Q1- 2017','Q2 - 2017','Q3- 2017'),ordered = TRUE)
+par(mfrow=c(2,1))
+plot(table(rdata$Period),type = "l",main="Quarter - # of Crimes")
+library(scales)
+ggplot(data=rdata, aes(x=Period)) + geom_bar(aes(fill=..count..)) +   scale_x_discrete("Period") +   scale_y_continuous("Crime")
+#From the above visualization we will be able to understand Q3 Contributing Huge crime comparing other Quarters.
+
+round(prop.table(table(rdata$Year,rdata$Quarter))*100,0)
+#Q3 - 48% of Crime (for last three years)
+#Q2 - 26 % of Crime( for last three years)
+#Q4 - 17% of Crime(for last three years)
+#Q1 - 9% of crime(for last three years)
+# July - Sept is the pick period for the crime.
+
+# Better install the dev versions ----------
+# devtools::install_github("dkahle/ggmap")
+# devtools::install_github("hrbrmstr/ggalt")
+#install.packages("devtools")
+#install.packages("ggmap")
+#install.packages("ggalt")
+# load packages
+library(ggplot2)
+library(ggmap)
+library(ggalt)
+
+
+
+# Get Coordinates for Newyork's Places ---------------------
+NY_Park <- unique(as.character(rdata$PARK))
+unique(NY_Park)
+places_loc <- geocode(NY_Park)  # get longitudes and latitudes
+NYC_ggl_road_map <- qmap("New York", zoom=12, source = "google", maptype="roadmap")
+
+#Crime - Across the New York Location
+# Plot Google Road Map -------------------------------------
+NYC_ggl_road_map + geom_point(aes(x=lon, y=lat),
+                              data = places_loc, 
+                              alpha = 0.7, 
+                              size = 7, 
+                              color = "tomato") + 
+  geom_encircle(aes(x=lon, y=lat),
+                data = places_loc, size = 2, color = "blue")
+
+
+cou<-sort(table(rdata$PARK),decreasing = T)
+cou<-as.data.frame(cou)
+cou1<-cou[1:10,]
+#Top 10 Parks in number of crimes.
+cou1
+
+
+
+rdata2<-read.xlsx("Park.xlsx",sheetIndex = 1)
+
+cor(rdata2$Size,rdata2$Total.Crime)
+
+plot(rdata2$Size,rdata2$Total.Crime,col=2:8,ylab="#of Crimes",xlab="Size",main="Size Vs. # Crimes")
+
+#our Assumption is Size of the park is high there is high propability of Crimes but  correlation value represeting very weak relationship .
+#This is because of most of the park crime is very less.
+summary(rdata2$Size)
+#average Size : 24.99 Acres.
+#50% of the park size will be 1.58 ACres
+#Maximum Acre:2771 Acres.

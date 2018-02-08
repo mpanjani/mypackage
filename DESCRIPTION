@@ -1,0 +1,9 @@
+Package: mypackage
+Title: Multiply
+Version: 0.1
+Author: Mohit Panani<mpanani@gmail.com>
+Description: Multiply all the values in the list and return the result
+License: MIT
+Depends: R (>= 3.0.2)
+Maintainer: Mohit Panani<mpanani@gmail.com>
+RoxygenNote: 6.0.1

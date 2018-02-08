@@ -1,0 +1,1589 @@
+## Lab work -2
+
+## chapter 1
+
+## Step 1 read all the data files
+
+Bladeweight=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/BladeWeight.csv")
+comp=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/Complaints.csv")
+CS2014=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/CustomerSurvey2014.csv")
+dsat=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/DealerSatisfaction.csv")
+dad=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/DefectsAfterDelivery.csv")
+Empret=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/EmployeeRetention.csv")
+esat=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/EmployeeSatisfaction.csv")
+eusat=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/EndUserSatisfaction.csv")
+engines=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/Engines.csv")
+fcost=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/FixedCost.csv")
+Inmots=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/IndustryMowerTotalSales.csv")
+Intts=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/IndustryTractorTotalSales.csv")
+mtest=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/MowerTest.csv")
+MUsales=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/MowerUnitSales.csv")
+otd=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/OnTimeDelivery.csv")
+OIexp=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/OperatingAndInterestExpenses.csv")
+Prices=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/Prices.csv")
+pursur=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/PurchasingSurvey.csv")
+restime=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/ResponseTime.csv")
+exscost=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/ShippingCost_Existing.csv")
+prscost=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/ShippingCost_Proposed.csv")
+ttpsup=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/TimeToPaySuppliers.csv")
+Tusales=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/TractorUnitSales.csv")
+tcost=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/TransmissionCosts.csv")
+upcost=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/UnitProductionCosts.csv")
+
+## Step 2 Determine the data type of each variable in the PLE data files.
+
+## we use str function to get the same :
+
+str(Bladeweight)
+str(comp)
+str(CS2014)
+str(dsat)
+str(dad)
+str(Empret)
+str(esat)
+str(eusat)
+str(engines)
+str(fcost)
+str(Inmots)
+str(Intts)
+str(mtest)
+str(MUsales)
+str(otd)
+str(OIexp)
+str(Prices)
+str(pursur)
+str(restime)
+str(exscost)
+str(prscost)
+str(ttpsup)
+str(Tusales)
+str(tcost)
+str(upcost)
+
+## Chapter 2 (Optional)
+
+## Step 1 Find the total number of responses to each level of the surveys, Dealer and End-User Satisfaction,
+##across all regions for each year.
+
+## Calling values from the data of different years in the column
+
+##Year on year dealer satisfaction data 
+
+y2010dsat=dsat[which(dsat$Year==2010),]
+y2011dsat=dsat[which(dsat$Year==2011),]
+y2012dsat=dsat[which(dsat$Year==2012),]
+y2013dsat=dsat[which(dsat$Year==2013),]
+y2014dsat=dsat[which(dsat$Year==2014),]
+
+## year on year end user satisfaction data
+
+y2010eusat=eusat[which(eusat$Year==2010),]
+y2011eusat=eusat[which(eusat$Year==2011),]
+y2012eusat=eusat[which(eusat$Year==2012),]
+y2013eusat=eusat[which(eusat$Year==2013),]
+y2014eusat=eusat[which(eusat$Year==2014),]
+
+
+## sum the response of all regions level wise we use sum function
+
+## year on year sum of responses of all regions of dealer satisfaction
+
+l010dsat=sum(y2010dsat[,3])
+l110dsat=sum(y2010dsat[,4])
+l210dsat=sum(y2010dsat[,5])
+l310dsat=sum(y2010dsat[,6])
+l410dsat=sum(y2010dsat[,7])
+l510dsat=sum(y2010dsat[,8])
+
+## year on year sum of responses of all regions of end user satisfaction
+
+l010eusat=sum(y2010eusat[,3])
+l110eusat=sum(y2010eusat[,4])
+l210eusat=sum(y2010eusat[,5])
+l310eusat=sum(y2010eusat[,6])
+l410eusat=sum(y2010eusat[,7])
+l510eusat=sum(y2010eusat[,8])
+
+
+
+## similarly we do it for all years
+
+## 2011
+
+l011dsat=sum(y2011dsat[,3])
+l111dsat=sum(y2011dsat[,4])
+l211dsat=sum(y2011dsat[,5])
+l311dsat=sum(y2011dsat[,6])
+l411dsat=sum(y2011dsat[,7])
+l511dsat=sum(y2011dsat[,8])
+
+l011eusat=sum(y2011eusat[,3])
+l111eusat=sum(y2011eusat[,4])
+l211eusat=sum(y2011eusat[,5])
+l311eusat=sum(y2011eusat[,6])
+l411eusat=sum(y2011eusat[,7])
+l511eusat=sum(y2011eusat[,8])
+
+## 2012
+
+l012dsat=sum(y2012dsat[,3])
+l112dsat=sum(y2012dsat[,4])
+l212dsat=sum(y2012dsat[,5])
+l312dsat=sum(y2012dsat[,6])
+l412dsat=sum(y2012dsat[,7])
+l512dsat=sum(y2012dsat[,8])
+
+l012eusat=sum(y2012eusat[,3])
+l112eusat=sum(y2012eusat[,4])
+l212eusat=sum(y2012eusat[,5])
+l312eusat=sum(y2012eusat[,6])
+l412eusat=sum(y2012eusat[,7])
+l512eusat=sum(y2012eusat[,8])
+
+## 2013
+
+l013dsat=sum(y2013dsat[,3])
+l113dsat=sum(y2013dsat[,4])
+l213dsat=sum(y2013dsat[,5])
+l313dsat=sum(y2013dsat[,6])
+l413dsat=sum(y2013dsat[,7])
+l513dsat=sum(y2013dsat[,8])
+
+l013eusat=sum(y2013eusat[,3])
+l113eusat=sum(y2013eusat[,4])
+l213eusat=sum(y2013eusat[,5])
+l313eusat=sum(y2013eusat[,6])
+l413eusat=sum(y2013eusat[,7])
+l513eusat=sum(y2013eusat[,8])
+
+## 2014
+
+l014dsat=sum(y2014dsat[,3])
+l114dsat=sum(y2014dsat[,4])
+l214dsat=sum(y2014dsat[,5])
+l314dsat=sum(y2014dsat[,6])
+l414dsat=sum(y2014dsat[,7])
+l514dsat=sum(y2014dsat[,8])
+
+l014eusat=sum(y2014eusat[,3])
+l114eusat=sum(y2014eusat[,4])
+l214eusat=sum(y2014eusat[,5])
+l314eusat=sum(y2014eusat[,6])
+l414eusat=sum(y2014eusat[,7])
+l514eusat=sum(y2014eusat[,8])
+
+## create vector for sum of all levels to create table
+
+## vectors for dealer satisfaction
+
+y10dsat=c(l010dsat,l110dsat,l210dsat,l310dsat,l410dsat,l510dsat)
+y11dsat=c(l011dsat,l111dsat,l211dsat,l311dsat,l411dsat,l511dsat)
+y12dsat=c(l012dsat,l112dsat,l212dsat,l312dsat,l412dsat,l512dsat)
+y13dsat=c(l013dsat,l113dsat,l213dsat,l313dsat,l413dsat,l513dsat)
+y14dsat=c(l014dsat,l114dsat,l214dsat,l314dsat,l414dsat,l514dsat)
+
+## vectors for end user satisfaction 
+
+y10eusat=c(l010eusat,l110eusat,l210eusat,l310eusat,l410eusat,l510eusat)
+y11eusat=c(l011eusat,l111eusat,l211eusat,l311eusat,l411eusat,l511eusat)
+y12eusat=c(l012eusat,l112eusat,l212eusat,l312eusat,l412eusat,l512eusat)
+y13eusat=c(l013eusat,l113eusat,l213eusat,l313eusat,l413eusat,l513eusat)
+y14eusat=c(l014eusat,l114eusat,l214eusat,l314eusat,l414eusat,l514eusat)
+
+## Table for dealer satisfaction response for all region year on year
+tabledsat =matrix(c(y10dsat,y11dsat,y12dsat,y13dsat,y14dsat),ncol=6,byrow=TRUE)
+colnames(tabledsat)=c("L0","L1","L2","L3","L4","L5")
+rownames(tabledsat)=c(2010,2011,2012,2013,2014)
+tabledsat
+
+## Table for dealer satisfaction response for all region year on year
+
+tableeusat =matrix(c(y10eusat,y11eusat,y12eusat,y13eusat,y14eusat),ncol=6,byrow=TRUE)
+colnames(tableeusat)=c("L0","L1","L2","L3","L4","L5")
+rownames(tableeusat)=c(2010,2011,2012,2013,2014)
+tableeusat
+
+
+## Step 2 : Find the number of failures in Mower test 
+
+y=t(sapply(mtest[-1], function(x) table(factor(x, levels=c("Pass", "Fail")))))
+y
+str(y)
+
+## convert sapply into data frame to find the total number of fails or pass
+
+y2=as.data.frame(y)
+y2
+str(y2)
+
+## sum function to add up all the passes and Failures
+
+sum(y2$Fail)
+sum(y2$Pass)
+
+## Step 3: Compute the gross revenue by months and region as well as worldwide for each product using the data
+##in Mower Unit Sales and Tractor Unit Sales. 
+
+str(musales)
+summary(musales)
+
+str(TUsales)
+summary(TUsales)
+
+str(prices)
+summary(prices)
+
+## calculate Mowers revenue year on year 
+
+Mrev2010=MUsales[1:12, 3:8]*Prices[1, 2]
+Mrev2011=MUsales[13:24, 3:8]*Prices[2, 2]
+Mrev2012=MUsales[25:36, 3:8]*Prices[3, 2]
+Mrev2013=MUsales[37:48, 3:8]*Prices[4, 2]
+Mrev2014=MUsales[48:60, 3:8]*Prices[5, 2]
+Mrev2014=MUsales[49:60, 3:8]*Prices[5, 2]
+Mrev2010
+Mrev2011
+Mrev2012
+Mrev2013
+Mrev2014
+
+
+## Mrev 2015 will not be there as prices are given till 2014.
+
+
+## Calculate Tractors revenue year by year
+
+Trev2010=TUsales[1:12, 3:8]*Prices[1, 3]
+Trev2011=TUsales[13:24, 3:8]*Prices[2, 3]
+Trev2012=TUsales[25:36, 3:8]*Prices[3, 3]
+Trev2013=TUsales[37:48, 3:8]*Prices[4, 3]
+Trev2014=TUsales[49:60, 3:8]*Prices[5, 3]
+Trev2010
+Trev2011
+Trev2012
+Trev2013
+Trev2014
+
+
+## Step 4 chapter 2: Market share of Mowers and Tractors 
+
+## calculate industry Mowers revenue
+
+indmrev10=Inmots[1:12, 2:6]*Prices[1,2]
+indmrev11=Inmots[13:24,2:6]*Prices[2,2]
+indmrev12=Inmots[25:36,2:6]*Prices[3,2]
+indmrev13=Inmots[37:48,2:6]*Prices[4,2]
+indmrev14=Inmots[49:60,2:6]*Prices[5,2]
+
+## calculate industry tractor revenue
+
+indtrev10=Intts[1:12,2:7]*Prices[1,3]
+indtrev11=Intts[13:24,2:7]*Prices[2,3]
+indtrev12=Intts[25:36,2:7]*Prices[3,3]
+indtrev13=Intts[37:48,2:7]*Prices[4,3]
+indtrev14=Intts[49:60,2:7]*Prices[5,3]
+
+## gross total revenue by region for Mowers, Tractors and industry wide rev of Mowers and Revenue by region
+
+## NA
+mrevNA=sum(Mrev2010$NA.,Mrev2011$NA.,Mrev2012$NA.,Mrev2013$NA.,Mrev2014$NA.)
+trevNA=sum(Trev2010$NA.,Trev2011$NA.,Trev2012$NA.,Trev2013$NA.,Trev2014$NA.)
+mirevNA=sum(indmrev10$NA.,indmrev11$NA.,indmrev12$NA.,indmrev13$NA.,indmrev14$NA.)
+tirevNA=sum(indtrev10$NA.,indtrev11$NA.,indtrev12$NA.,indtrev13$NA.,indtrev14$NA.)
+
+## SA
+mrevSA=sum(Mrev2010$SA,Mrev2011$SA,Mrev2012$SA,Mrev2013$SA,Mrev2014$SA)
+trevSA=sum(Trev2010$SA,Trev2011$SA,Trev2012$SA,Trev2013$SA,Trev2014$SA)
+mirevSA=sum(indmrev10$SA,indmrev11$SA,indmrev12$SA,indmrev13$SA,indmrev14$SA)
+tirevSA=sum(indtrev10$SA,indtrev11$SA,indtrev12$SA,indtrev13$SA,indtrev14$SA)
+
+## Europe
+
+mrevEU=sum(Mrev2010$Europe,Mrev2011$Europe,Mrev2012$Europe,Mrev2013$Europe,Mrev2014$Europe)
+trevEU=sum(Trev2010$Eur,Trev2011$Eur,Trev2012$Eur,Trev2013$Eur,Trev2014$Eur)
+mirevEU=sum(indmrev10$Eur,indmrev11$Eur,indmrev12$Eur,indmrev13$Eur,indmrev14$Eur)
+tirevEU=sum(indtrev10$Eur,indtrev11$Eur,indtrev12$Eur,indtrev13$Eur,indtrev14$Eur)
+
+## Pacific
+
+mrevPA=sum(Mrev2010$Pacific,Mrev2011$Pacific,Mrev2012$Pacific,Mrev2013$Pacific,Mrev2014$Pacific)
+trevPA=sum(Trev2010$Pac,Trev2011$Pac,Trev2012$Pac,Trev2013$Pac,Trev2014$Pac)
+mirevPA=sum(indmrev10$Pac,indmrev11$Pac,indmrev12$Pac,indmrev13$Pac,indmrev14$Pac)
+tirevPA=sum(indtrev10$Pac,indtrev11$Pac,indtrev12$Pac,indtrev13$Pac,indtrev14$Pac)
+
+## World
+
+mrevW=sum(Mrev2010$World,Mrev2011$World,Mrev2012$World,Mrev2013$World,Mrev2014$World)
+trevW=sum(Trev2010$World,Trev2011$World,Trev2012$World,Trev2013$World,Trev2014$World)
+mirevW=sum(indmrev10$World,indmrev11$World,indmrev12$World,indmrev13$World,indmrev14$World)
+tirevW=sum(indtrev10$World,indtrev11$World,indtrev12$World,indtrev13$World,indtrev14$World)
+
+## market share by region :
+
+##NA
+
+mktshmowersNA=mrevNA/mirevNA*100
+mktshmowersNA
+mktshtractorNA=trevNA/tirevNA*100
+mktshtractorNA
+
+##SA
+
+mktshmowersSA=mrevSA/mirevSA*100
+mktshmowersSA
+mktshtractorSA=trevSA/tirevSA*100
+mktshtractorSA
+
+##Europe
+
+mktshmowersEU=mrevEU/mirevEU*100
+mktshmowersEU
+mktshtractorEU=trevEU/tirevEU*100
+mktshtractorEU
+
+## Pacific
+
+mktshmowersPA=mrevPA/mirevPA*100
+mktshmowersPA
+mktshtractorPA=trevPA/tirevPA*100
+mktshtractorPA
+
+## world
+
+mktshmowersW=mrevW/mirevW*100
+mktshmowersw
+mktshtractorW=trevW/tirevW*100
+mktshtractorW
+
+## China not doing as industry level mowers data is not available for Chine
+
+
+## Chapter 3 
+## Part 1: - overview of PLE buisness perfromance and market position. construct charts and summarize conclusion
+## First look at the data for dealer satisfaction and end user satisfaction with str function 
+
+str(dsat)
+str(EUsat)
+
+## subset the data by region
+
+dsatNA=dsat[1:5, ]
+dsatSA=dsat[6:10, ]
+dsatEU=dsat[11:15, ]
+dsatPA=dsat[16:20, ]
+dsatCH=dsat[21:23, ]
+
+eusatNA=EUsat[1:5,]
+eusatSA=EUsat[6:10,]
+eusatEU=EUsat[11:15,]
+eusatPA=EUsat[16:20,]
+eusatCH=EUsat[21:23,]
+
+## create a plot of above using ggplot2, before that we have to get the data in sequence so we transpose the data 
+
+tdsatNA=t(dsatNA[, 3:8])
+tdsatSA=t(dsatSA[, 3:8])
+tdsatEU=t(dsatEU[,3:8])
+tdsatPA=t(dsatPA[,3:8])
+tdsatCH=t(dsatCH[, 3:8])
+
+teusatNA=t(eusatNA[,3:8])
+teusatSA=t(eusatSA[,3:8])
+teusatEU=t(eusatEU[,3:8])
+teusatPA=t(eusatPA[,3:8])
+teusatCH=t(eusatCH[,3:8])
+
+## add column names in the data 
+
+colnames(tdsatNA)=c("2010","2011","2012","2013","2014")
+colnames(tdsatSA)=c("2010","2011","2012","2013","2014")
+colnames(tdsatEU)=c("2010","2011","2012","2013","2014")
+colnames(tdsatPA)=c("2010","2011","2012","2013","2014")
+colnames(tdsatCH)=c("2012","2013","2014")
+
+colnames(teusatNA)=c("2010","2011","2012","2013","2014")
+colnames(teusatSA)=c("2010","2011","2012","2013","2014")
+colnames(teusatEU)=c("2010","2011","2012","2013","2014")
+colnames(teusatPA)=c("2010","2011","2012","2013","2014")
+colnames(teusatCH)=c("2012","2013","2014")
+
+## Melt the data to get in continuation
+library(reshape2)
+
+## dealer sat data
+mdNA=melt(tdsatNA, id.vars=var1)
+mdSA=melt(tdsatSA, id.vars=var1)
+mdEU=melt(tdsatEU, id.vars=var1)
+mdPA=melt(tdsatPA, id.vars=var1)
+mdCH=melt(tdsatCH, id.vars=var1)
+
+## end user sat data
+meuNA=melt(teusatNA, id.vars=var1)
+meuSA=melt(teusatSA, id.vars=var1)
+meuEU=melt(teusatEU, id.vars=var1)
+meuPA=melt(teusatPA, id.vars=var1)
+meuCH=melt(teusatCH, id.vars=var1)
+
+## add col names to the melted data
+## dealer sat
+colnames(mdNA)=c("Level","Year","Value")
+colnames(mdSA)=c("Level","Year","Value")
+colnames(mdEU)=c("Level","Year","Value")
+colnames(mdPA)=c("Level","Year","Value")
+colnames(mdCH)=c("Level","Year","Value")
+## end user sat
+colnames(meuNA)=c("Level","Year","Value")
+colnames(meuSA)=c("Level","Year","Value")
+colnames(meuEU)=c("Level","Year","Value")
+colnames(meuPA)=c("Level","Year","Value")
+colnames(meuCH)=c("Level","Year","Value")
+
+## calling ggplot functions for graphs
+library(ggplot2)
+
+## Dealer satisfaction
+
+ggplot(mdNA, aes(Year, Value,))+geom_bar(aes(fill=Level), position="dodge", stat="identity")
+ggplot(mdSA, aes(Year, Value,))+geom_bar(aes(fill=Level), position="dodge", stat="identity")
+ggplot(mdEU, aes(Year, Value,))+geom_bar(aes(fill=Level), position="dodge", stat="identity")
+ggplot(mdPA, aes(Year, Value,))+geom_bar(aes(fill=Level), position="dodge", stat="identity")
+ggplot(mdCH, aes(Year, Value,))+geom_bar(aes(fill=Level), position="dodge", stat="identity")
+
+## End user satisfaction
+
+ggplot(meuNA, aes(Year, Value, fill=Level))+geom_bar(stat="identity")
+ggplot(meuSA, aes(Year, Value, fill=Level))+geom_bar(stat="identity")
+ggplot(meuEU, aes(Year, Value, fill=Level))+geom_bar(stat="identity")
+ggplot(meuPA, aes(Year, Value, fill=Level))+geom_bar(stat="identity")
+ggplot(meuCH, aes(Year, Value, fill=Level))+geom_bar(stat="identity")
+
+## visual representation of Mower unit sales :
+
+plot(MUsales$World,ylim=range(c(100,12300)), type = "l", col="green",main="Mower Unit Sales",xlab="Month",ylab="No. of sales")
+par(new=TRUE)
+plot(MUsales$NA.,ylim = range(c(100,12300)),type="l",col="blue",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(MUsales$SA,ylim = range(c(100,12300)),type="l",col="red",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(MUsales$Europe,ylim = range(c(100,12300)),type="l",col="yellow",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(MUsales$Pacific,ylim = range(c(100,12300)),type="l",col="black",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(MUsales$China,ylim = range(c(100,12300)),type="l",col="grey",axes=FALSE,xlab="",ylab="")
+legend('center',inset = .02,c("World","NA.","SA","EUR","PAC","China"),horiz=TRUE,cex=0.5,lty=c(1,1,1,1,1,1),lwd=c(2.5,2.5,2.5,2.5,2.5,2.5),col=c("green","blue","red","yellow","black","grey"))
+
+## visual representation of Tractor unit sales :
+
+plot(TUsales$World,ylim=range(c(200,5000)), type = "l", col="green",main="Tractor Unit Sales",xlab="Month",ylab="No. of sales")
+par(new=TRUE)
+plot(TUsales$NA.,ylim = range(c(200,5000)),type="l",col="blue",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(TUsales$SA,ylim = range(c(200,5000)),type="l",col="red",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(TUsales$Eur,ylim = range(c(200,5000)),type="l",col="yellow",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(TUsales$Pac,ylim = range(c(200,5000)),type="l",col="black",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)
+plot(TUsales$China,ylim = range(c(200,5000)),type="l",col="grey",axes=FALSE,xlab="",ylab="")
+legend('top',inset = .02,c("World","NA.","SA","EUR","PAC","China"),horiz=TRUE,cex=0.5,lty=c(1,1,1,1,1,1),lwd=c(2.5,2.5,2.5,2.5,2.5,2.5),col=c("green","blue","red","yellow","black","grey"))
+
+
+## visual representation of response time 
+
+plot(restime$Q1.2013,ylim =range(c(0,10)),type="l",col="green",main="Quartrely response time",xlab="Months",ylab="Time (Mins)")
+par(new=TRUE)     
+plot(restime$Q2.2013,ylim=range(c(0,10)),type = "l",col="blue",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q3.2013,ylim=range(c(0,10)),type = "l",col="red",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q4.2013,ylim=range(c(0,10)),type = "l",col="yellow",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q1.2014,ylim=range(c(0,10)),type = "l",col="black",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q2.2014,ylim=range(c(0,10)),type = "l",col="grey",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q3.2014,ylim=range(c(0,10)),type = "l",col="pink",axes=FALSE,xlab="",ylab="")
+par(new=TRUE)     
+plot(restime$Q4.2014,ylim=range(c(0,10)),type = "l",col="orange",axes=FALSE,xlab="",ylab="")
+
+
+## visual representation of on time delivery
+
+plot(otd$Percent,ylim =range(c(0.98,1)),type="l",col="green",main="On time delivery chart",xlab="Months",ylab="%")
+
+## visual representation of defect after deilvery
+
+colnames(dad)=c("Months","2010","2011","2012","2013","2014")
+dad
+
+tdad=t(dad[ ,2:6])
+colnames(tdad)=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+tdad
+mdad=melt(tdad)
+colnames(mdad)=c("Year","Month","value")
+mdad
+ggplot(mdad,aes(,value))+geom_bar(aes(fill=Level),stat="identity",position = "dodge")
+
+
+## part 2: quartiles can be dome throuogh summary function
+
+summary(exscost$Mowers)
+summary(exscost$Tractors)  
+summary(prscost$Mowers)
+summary(prscost$Mowers)
+
+## part 3: developing summary about customer attributes. file to be used is customer survey 2014.attributes f survey include :quality, ease of use, price and service
+
+## Look at the data using str and summary function 
+CS2014=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/CustomerSurvey2014.csv")
+str(CS2014)
+summary(CS2014)
+## as NA has special meaning in R and we have NA refered as North America in our data, we need to remove the CS14 and use string as factor argument 
+rm(CS2014)
+CS=read.csv("C:/Users/pdeepti83/Desktop/New Work/Data/ANLY 500/Lab 1 csv files/CustomerSurvey2014.csv", stringsAsFactors = FALSE)
+CS[is.na(CS)]="NorthA"
+CS
+str(CS)
+barplot(table(CS$Region),col = c("red"."green","yellow","orange","black"))
+## Because the remaining variables in the CustomerSurvey2014 data file are numeric variables we can use
+##the hist() function as follows:
+hist(CS$Quality,main="Quality - Number of Responses",xlab = "Level of Quality")
+
+## chapter 4
+## part 1: The mean satisfaction ratings and standard deviations by year and region in the data files Dealer Satisfaction and End-User Satisfaction 
+
+## since we already have region wise split of dealer satisfaction and end user sat lets recall the argument with headings for all the regions
+
+## dealer satisfaction 
+
+tdsatNA
+tdsatSA
+tdsatEU
+tdsatPA
+tdsatCH
+
+## End user satisfaction
+
+teusatNA
+teusatSA
+teusatEU
+teusatPA
+teusatCH
+
+## brute force approach to compute mean of NA of all the years
+## mean of all the regions wil be computed in similar way
+## NA
+## dealer Satisfaction
+mNA2010 <- ((tdsatNA[2,1]*1) + (tdsatNA[3,1]*2) + (tdsatNA[4,1]*3) + (tdsatNA[5,1]*4) + (tdsatNA[6,1]*5))/sum(tdsatNA[,1]);mNA2010=round(mNA2010,2)
+mNA2011 <- ((tdsatNA[2,2]*1) + (tdsatNA[3,2]*2) + (tdsatNA[4,2]*3) + (tdsatNA[5,2]*4) + (tdsatNA[6,2]*5))/sum(tdsatNA[,2]);mNA2011=round(mNA2011,2)
+mNA2012 <- ((tdsatNA[2,3]*1) + (tdsatNA[3,3]*2) + (tdsatNA[4,3]*3) + (tdsatNA[5,3]*4) + (tdsatNA[6,3]*5))/sum(tdsatNA[,3]);mNA2012=round(mNA2012,2)
+mNA2013 <- ((tdsatNA[2,4]*1) + (tdsatNA[3,4]*2) + (tdsatNA[4,4]*3) + (tdsatNA[5,4]*4) + (tdsatNA[6,4]*5))/sum(tdsatNA[,4]);mNA2013=round(mNA2013,2)
+mNA2014 <- ((tdsatNA[2,5]*1) + (tdsatNA[3,5]*2) + (tdsatNA[4,5]*3) + (tdsatNA[5,5]*4) + (tdsatNA[6,5]*5))/sum(tdsatNA[,5]);mNA2014=round(mNA2014,2)
+## End User Satisfaction
+eusmNA2010 <- ((teusatNA[2,1]*1) + (teusatNA[3,1]*2) + (teusatNA[4,1]*3) + (teusatNA[5,1]*4) + (teusatNA[6,1]*5))/sum(teusatNA[,1])
+eusmNA2011 <- ((teusatNA[2,2]*1) + (teusatNA[3,2]*2) + (teusatNA[4,2]*3) + (teusatNA[5,2]*4) + (teusatNA[6,2]*5))/sum(teusatNA[,2])
+eusmNA2012 <- ((teusatNA[2,3]*1) + (teusatNA[3,3]*2) + (teusatNA[4,3]*3) + (teusatNA[5,3]*4) + (teusatNA[6,3]*5))/sum(teusatNA[,3])
+eusmNA2013 <- ((teusatNA[2,4]*1) + (teusatNA[3,4]*2) + (teusatNA[4,4]*3) + (teusatNA[5,4]*4) + (teusatNA[6,4]*5))/sum(teusatNA[,4])
+eusmNA2014 <- ((teusatNA[2,5]*1) + (teusatNA[3,5]*2) + (teusatNA[4,5]*3) + (teusatNA[5,5]*4) + (teusatNA[6,5]*5))/sum(teusatNA[,5])
+
+## SA
+## Dealer satisaction
+mSA2010 <- ((tdsatSA[2,1]*1) + (tdsatSA[3,1]*2) + (tdsatSA[4,1]*3) + (tdsatSA[5,1]*4) + (tdsatSA[6,1]*5))/sum(tdsatSA[,1]);mSA2010=round(mSA2010,2)
+mSA2011 <- ((tdsatSA[2,2]*1) + (tdsatSA[3,2]*2) + (tdsatSA[4,2]*3) + (tdsatSA[5,2]*4) + (tdsatSA[6,2]*5))/sum(tdsatSA[,2]);mSA2011=round(mSA2011,2)
+mSA2012 <- ((tdsatSA[2,3]*1) + (tdsatSA[3,3]*2) + (tdsatSA[4,3]*3) + (tdsatSA[5,3]*4) + (tdsatSA[6,3]*5))/sum(tdsatSA[,3]);mSA2012=round(mSA2012,2)
+mSA2013 <- ((tdsatSA[2,4]*1) + (tdsatSA[3,4]*2) + (tdsatSA[4,4]*3) + (tdsatSA[5,4]*4) + (tdsatSA[6,4]*5))/sum(tdsatSA[,4]);mSA2013=round(mSA2013,2)
+mSA2014 <- ((tdsatSA[2,5]*1) + (tdsatSA[3,5]*2) + (tdsatSA[4,5]*3) + (tdsatSA[5,5]*4) + (tdsatSA[6,5]*5))/sum(tdsatSA[,5]);mSA2014=round(mSA2014,2)
+
+## End User Satisfaction
+eusmSA2010 <- ((teusatSA[2,1]*1) + (teusatSA[3,1]*2) + (teusatSA[4,1]*3) + (teusatSA[5,1]*4) + (teusatSA[6,1]*5))/sum(teusatSA[,1])
+eusmSA2011 <- ((teusatSA[2,2]*1) + (teusatSA[3,2]*2) + (teusatSA[4,2]*3) + (teusatSA[5,2]*4) + (teusatSA[6,2]*5))/sum(teusatSA[,2])
+eusmSA2012 <- ((teusatSA[2,3]*1) + (teusatSA[3,3]*2) + (teusatSA[4,3]*3) + (teusatSA[5,3]*4) + (teusatSA[6,3]*5))/sum(teusatSA[,3])
+eusmSA2013 <- ((teusatSA[2,4]*1) + (teusatSA[3,4]*2) + (teusatSA[4,4]*3) + (teusatSA[5,4]*4) + (teusatSA[6,4]*5))/sum(teusatSA[,4])
+eusmSA2014 <- ((teusatSA[2,5]*1) + (teusatSA[3,5]*2) + (teusatSA[4,5]*3) + (teusatSA[5,5]*4) + (teusatSA[6,5]*5))/sum(teusatSA[,5])
+
+# EU
+## Dealer satisfaction
+mEU2010 <- ((tdsatEU[2,1]*1) + (tdsatEU[3,1]*2) + (tdsatEU[4,1]*3) + (tdsatEU[5,1]*4) + (tdsatEU[6,1]*5))/sum(tdsatEU[,1]);mEU2010=round(mEU2010,2)
+mEU2011 <- ((tdsatEU[2,2]*1) + (tdsatEU[3,2]*2) + (tdsatEU[4,2]*3) + (tdsatEU[5,2]*4) + (tdsatEU[6,2]*5))/sum(tdsatEU[,2]);mEU2011=round(mEU2011,2)
+mEU2012 <- ((tdsatEU[2,3]*1) + (tdsatEU[3,3]*2) + (tdsatEU[4,3]*3) + (tdsatEU[5,3]*4) + (tdsatEU[6,3]*5))/sum(tdsatEU[,3]);mEU2012=round(mEU2012,2)
+mEU2013 <- ((tdsatEU[2,4]*1) + (tdsatEU[3,4]*2) + (tdsatEU[4,4]*3) + (tdsatEU[5,4]*4) + (tdsatEU[6,4]*5))/sum(tdsatEU[,4]);mEU2013=round(mEU2013,2)
+mEU2014 <- ((tdsatEU[2,5]*1) + (tdsatEU[3,5]*2) + (tdsatEU[4,5]*3) + (tdsatEU[5,5]*4) + (tdsatEU[6,5]*5))/sum(tdsatEU[,5]);mEU2014=round(mEU2014,2)
+
+## End User Satisfaction
+eusmEU2010 <- ((teusatEU[2,1]*1) + (teusatEU[3,1]*2) + (teusatEU[4,1]*3) + (teusatEU[5,1]*4) + (teusatEU[6,1]*5))/sum(teusatEU[,1])
+eusmEU2011 <- ((teusatEU[2,2]*1) + (teusatEU[3,2]*2) + (teusatEU[4,2]*3) + (teusatEU[5,2]*4) + (teusatEU[6,2]*5))/sum(teusatEU[,2])
+eusmEU2012 <- ((teusatEU[2,3]*1) + (teusatEU[3,3]*2) + (teusatEU[4,3]*3) + (teusatEU[5,3]*4) + (teusatEU[6,3]*5))/sum(teusatEU[,3])
+eusmEU2013 <- ((teusatEU[2,4]*1) + (teusatEU[3,4]*2) + (teusatEU[4,4]*3) + (teusatEU[5,4]*4) + (teusatEU[6,4]*5))/sum(teusatEU[,4])
+eusmEU2014 <- ((teusatEU[2,5]*1) + (teusatEU[3,5]*2) + (teusatEU[4,5]*3) + (teusatEU[5,5]*4) + (teusatEU[6,5]*5))/sum(teusatEU[,5])
+
+## PA
+## Dealer satisfaction
+mPA2010 <- ((tdsatPA[2,1]*1) + (tdsatPA[3,1]*2) + (tdsatPA[4,1]*3) + (tdsatPA[5,1]*4) + (tdsatPA[6,1]*5))/sum(tdsatPA[,1]);mPA2010=round(mPA2010,2)
+mPA2011 <- ((tdsatPA[2,2]*1) + (tdsatPA[3,2]*2) + (tdsatPA[4,2]*3) + (tdsatPA[5,2]*4) + (tdsatPA[6,2]*5))/sum(tdsatPA[,2]);mPA2011=round(mPA2011,2)
+mPA2012 <- ((tdsatPA[2,3]*1) + (tdsatPA[3,3]*2) + (tdsatPA[4,3]*3) + (tdsatPA[5,3]*4) + (tdsatPA[6,3]*5))/sum(tdsatPA[,3]);mPA2012=round(mPA2012,2)
+mPA2013 <- ((tdsatPA[2,4]*1) + (tdsatPA[3,4]*2) + (tdsatPA[4,4]*3) + (tdsatPA[5,4]*4) + (tdsatPA[6,4]*5))/sum(tdsatPA[,4]);mPA2013=round(mPA2013,2)
+mPA2014 <- ((tdsatPA[2,5]*1) + (tdsatPA[3,5]*2) + (tdsatPA[4,5]*3) + (tdsatPA[5,5]*4) + (tdsatPA[6,5]*5))/sum(tdsatPA[,5]);mPA2014=round(mPA2014,2)
+
+## End User Satisfaction
+eusmPA2010 <- ((teusatPA[2,1]*1) + (teusatPA[3,1]*2) + (teusatPA[4,1]*3) + (teusatPA[5,1]*4) + (teusatPA[6,1]*5))/sum(teusatPA[,1])
+eusmPA2011 <- ((teusatPA[2,2]*1) + (teusatPA[3,2]*2) + (teusatPA[4,2]*3) + (teusatPA[5,2]*4) + (teusatPA[6,2]*5))/sum(teusatPA[,2])
+eusmPA2012 <- ((teusatPA[2,3]*1) + (teusatPA[3,3]*2) + (teusatPA[4,3]*3) + (teusatPA[5,3]*4) + (teusatPA[6,3]*5))/sum(teusatPA[,3])
+eusmPA2013 <- ((teusatPA[2,4]*1) + (teusatPA[3,4]*2) + (teusatPA[4,4]*3) + (teusatPA[5,4]*4) + (teusatPA[6,4]*5))/sum(teusatPA[,4])
+eusmPA2014 <- ((teusatPA[2,5]*1) + (teusatPA[3,5]*2) + (teusatPA[4,5]*3) + (teusatPA[5,5]*4) + (teusatPA[6,5]*5))/sum(teusatPA[,5])
+
+
+## CHINA
+## Dealer satisfaction
+mCH2012 <- ((tdsatCH[2,1]*1) + (tdsatCH[3,1]*2) + (tdsatCH[4,1]*3) + (tdsatCH[5,1]*4) + (tdsatCH[6,1]*5))/sum(tdsatCH[,1]);mCH2012=round(mCH2012,2)
+mCH2013 <- ((tdsatCH[2,2]*1) + (tdsatCH[3,2]*2) + (tdsatCH[4,2]*3) + (tdsatCH[5,2]*4) + (tdsatCH[6,2]*5))/sum(tdsatCH[,2]);mCH2013=round(mCH2013,2)
+mCH2014 <- ((tdsatCH[2,3]*1) + (tdsatCH[3,3]*2) + (tdsatCH[4,3]*3) + (tdsatCH[5,3]*4) + (tdsatCH[6,3]*5))/sum(tdsatCH[,3]);mCH2014=round(mCH2014,2)
+
+## End User Satisfaction
+eusmCH2012 <- ((teusatCH[2,1]*1) + (teusatCH[3,1]*2) + (teusatCH[4,1]*3) + (teusatCH[5,1]*4) + (teusatCH[6,1]*5))/sum(teusatCH[,1])
+eusmCH2013 <- ((teusatCH[2,2]*1) + (teusatCH[3,2]*2) + (teusatCH[4,2]*3) + (teusatCH[5,2]*4) + (teusatCH[6,2]*5))/sum(teusatCH[,2])
+eusmCH2014 <- ((teusatCH[2,3]*1) + (teusatCH[3,3]*2) + (teusatCH[4,3]*3) + (teusatCH[5,3]*4) + (teusatCH[6,3]*5))/sum(teusatCH[,3])
+
+## Tables of Dealer satisfaction 
+tabdsat1=matrix(c(mNA2010,mNA2011,mNA2012,mNA2013,mNA2014,mSA2010,mSA2011,mSA2012,mSA2013,mSA2014,mEU2010,mEU2011,mEU2012,mEU2013,mEU2014,mPA2010,mPA2011,mPA2012,mPA2013,mPA2014,"NA","NA",mCH2012,mCH2013,mCH2014),ncol = 5)
+tabdsat1
+colnames(tabdsat1)=c("NorthA","SA","EU","PA","CH")
+rownames(tabdsat1)=c("2010","2011","2012","2013","2014")
+print(tabdsat1,quote = FALSE)
+
+## Tables of Dealer satisfaction 
+tabeusat=matrix(c(eusmNA2010,eusmNA2011,eusmNA2012,eusmNA2013,eusmNA2014,eusmSA2010,eusmSA2011,eusmSA2012,eusmSA2013,eusmSA2014,eusmEU2010,eusmEU2011,eusmEU2012,eusmEU2013,eusmEU2014,eusmPA2010,eusmPA2011,eusmPA2012,eusmPA2013,eusmPA2014,"NA","NA",eusmCH2012,eusmCH2013,eusmCH2014),ncol = 5)
+tabeusat
+colnames(tabeusat)=c("NorthA","SA","EU","PA","CH")
+rownames(tabeusat)=c("2010","2011","2012","2013","2014")
+print(tabeusat,quote = FALSE)
+
+## Part 2: A descriptive statistical summary for the 2014 customer survey data
+
+## subset the customer survey data by region
+
+csna=CS2014[1:100,-1]
+cssa=CS2014[102:151,-1]
+cseu=CS2014[152:181,-1]
+cspac=CS2014[182:191,-1]
+csch=CS2014[192:201,-1]
+
+describe(csna)
+describe(cssa)
+describe(cseu)
+describe(cspac)
+describe(csch)
+
+stat.desc(csna)
+stat.desc(cssa)
+stat.desc(cseu)
+stat.desc(cspac)
+stat.desc(csch)
+
+## part 3: How the response times differ in each quarter of the data file Response Time
+
+## response time is already set up by quarters
+
+str(restime)
+
+## to find how the response differs by quarter we have to create a plot of the mean. To do this we'll calculate and store the means of the quarters in a data object.
+
+difrestime=c(mean(restime$Q1.2013),mean(restime$Q2.2013),mean(restime$Q3.2013),mean(restime$Q4.2013),mean(restime$Q1.2014),mean(restime$Q2.2014),mean(restime$Q3.2014),mean(restime$Q4.2014))
+difrestime
+
+## we plot the mean by quarter
+
+plot(difrestime,type="l",lwd=2,col="blue",ylab = "Mean",xlab = "Quarters",main = "Mean Response Time",ylim = c(0,5),xaxt="n")
+axis(side=1,at=c(1:8),pch=0.5)
+
+## Part 4: How defects after delivery (data file Defects after Delivery) have changed over the years
+## defects after delivery already setup by years
+str(dad)
+
+## to find how the response differs by years we have to create a plot of the mean. To do this we'll calculate and store the means of the quarters in a data object.
+
+difdad=c(mean(dad$`2010`),mean(dad$`2011`),mean(dad$`2012`),mean(dad$`2013`),mean(dad$`2014`))
+difdad
+
+## we plot the mean by year
+
+plot(difdad,type="l",lwd=2,col="blue",ylab = "Mean",xlab = "Years",main = "Mean Defects After Delivery",ylim = c(400,950),xaxt="n")
+axis(side=1,at=c(1:8),pch=0.5)
+
+## Part 5: How sales of mowers and tractors compare with industry totals and how strongly monthly
+## product sales are correlated with industry sales
+## first look at the data for both mower unit sales and industry mowers total sales
+str(musales)
+str(Inmots)
+
+##We really want to combine these data files keeping the month/year variables from the Mower Unit
+## for MOWERS
+totms=musales[,]
+totms[,9:13]=Inmots[,-1]
+str(totms)
+## lets do the appropriate headings 
+colnames(totms) <- c("Month", "Year", "NorthA", "SA", "Eur", "Pac", "China", "World", "IndustryNorthA", "IndustrySA", "IndustryEur", "IndustryPac", "IndustryWorld")
+head(totms)
+## we use stat.desc to get the coefficient variance 
+stat.desc(totms)
+## use rcorr function to get the corelation table
+rcorr(as.matrix(totms[3:13]))
+
+## because the p value is very low around 0 , the correlation between mowers sales and industry mower sales is stastistically significant
+
+## for Tractors
+totts=Tusales[,]
+totts[,9:14]=Intts[,-1]
+str(totts)
+## lets do the appropriate headings 
+colnames(totts) <- c("Month", "Year", "NorthA", "SA", "Eur", "Pac", "China", "World", "IndNorthA", "IndSA", "IndEur", "IndPac","IndCh","Indworld")
+head(totts)
+## we use stat.desc to get the coefficient variance 
+stat.desc(totts)
+## use rcorr function to get the corelation table
+rcorr(as.matrix(totts[3:14]))
+
+## because the p value is very low around 0 , the correlation between mowers sales and industry mower sales is stastistically significant
+
+##Chapter 5 
+
+## part 1: For the mower test data, what distribution might be appropriate to model the failure of an individual mower?
+##    Bernoulli distribution has two outcomes success or failure so the answer is "Bernoulli Distribution".
+
+## Part2: What fraction of mowers fails the functional performance test using all the mower test data? 
+## we have 100 observations and 30 samples per observations so we have 100*30 ie 3000 opportunities and to determine the failure rate we need to determine how many test were failed
+cfail=length(which(mtest=="Fail"))
+cfail
+## So there are 54 "Fail" in the MowerTest data set,and the probability of "Fail" is
+prob=cfail/3000 
+prob
+
+## Part3:  What is the probability of having x failures in the next 100 mowers tested, for x from 0 to 20?
+##  Now we have to fnd the probability of having 0 to 20 failures in next 100 mwers tested. we use binominal distribution to do that 
+x=dbinom(0:20,100,.018)
+x
+plot(x)
+
+## Part4: What is the average blade weight and how much variability is occurring in the measurements of blade weights?
+str(Bladeweight)
+avgw=(sum(Bladeweight$Weight)/350)
+avgw ## average weight of blade
+
+## variation is calculated as std deviation
+stddev=sd(Bladeweight$Weight)
+stddev
+
+## Part5: Assuming that the data are normal, what is the probability that blade weights from this process will exceed 5.20?
+##  to determine the probability that the blade weight can exceed 5.20. To do this we use the pnorm function
+x=pnorm(5.20,mean = 4.99,sd=0.11)
+x
+1-x
+
+## Part6: What is the probability that weights will be less than 4.80? 
+
+y=pnorm(4.80,mean = 4.99,sd=0.11)
+y
+
+## Part7: What is the actual percent of weights that exceed 5.20 or are less than 4.80 from the data in the worksheet?
+
+x=(sum(length(which(Bladeweight$Weight>5.20)))+sum(length(which(Bladeweight$Weight<=4.80))))/(length(Bladeweight$Weight))
+x
+
+## Part8: Is the process that makes the blades stable over time? That is, are there any apparent changes in the pattern of the blade weights?
+
+## to determine over the eriod of time, the process that makes the blades by considering changes in blade weights over time
+
+plot(Bladeweight$Sample,Bladeweight$Weight)
+f=lm(Bladeweight$Weight~Bladeweight$Sample)
+abline(f)
+
+## Part9: Could any of the blade weights be considered outliers, which might indicate a problem with the manufacturing process or materials? 
+
+boxplot(Bladeweight$Weight)$out
+
+## Part10: Was the assumption that blade weights are normally distributed justified? What is the best-fitting probability distribution for the data?
+
+##  if the normal distribution is a good assumption for the blade weight data. To do this we'll want to plot a histogram of the data
+
+a=hist(Bladeweight$Weight)
+lines(c(min(a$breaks),a$mids,max(a$breaks)),c(0,a$counts,0),type = "l")
+
+## Chapter 6
+
+## Part1:  What proportion of customers rate the company with "top box" survey responses (which is defined as scale levels 4 and 5) on quality, east of use, price, and service in the 2014 Customer Survey worksheet? How do these proportions differ by geographic region?
+
+countreg=table(CS$Region,CS$Quality)
+countreg
+propCH=(sum(countreg[1,4],countreg[1,5]))/sum(countreg[1,])
+propEU=(sum(countreg[2,4],countreg[2,5]))/sum(countreg[2,])
+propNA=(sum(countreg[3,4],countreg[3,5]))/sum(countreg[3,])
+propPAC=(sum(countreg[4,4],countreg[4,5]))/sum(countreg[4,])
+propSA=(sum(countreg[5,4],countreg[5,5]))/sum(countreg[5,])
+propCH
+propEU
+propNA
+propPAC
+propSA
+
+## Part2: What estimates, with reasonable assurance, can PLE give customers for response times to customer service calls?
+
+## first we calculate std deviation quarter on quarter, we will not caculate mean as it will be caalculated in z test
+
+Q113sd=sd(restime$Q1.2013)
+Q213sd=sd(restime$Q2.2013)
+Q313sd=sd(restime$Q3.2013)
+Q413sd=sd(restime$Q4.2013)
+Q114sd=sd(restime$Q1.2014)
+Q214sd=sd(restime$Q2.2014)
+Q314sd=sd(restime$Q3.2014)
+Q414sd=sd(restime$Q4.2014)
+Q113sd
+stddevi=sd(restime$Q1.2013)
+
+## Z.test quarter on quarter
+
+z.test(restime$Q1.2013,sigma.x = Q113sd)
+z.test(restime$Q2.2013,sigma.x = Q213sd)
+z.test(restime$Q3.2013,sigma.x = Q313sd)
+z.test(restime$Q4.2013,sigma.x = Q413sd)
+z.test(restime$Q1.2014,sigma.x = Q114sd)
+z.test(restime$Q2.2014,sigma.x = Q214sd)
+z.test(restime$Q3.2014,sigma.x = Q314sd)
+z.test(restime$Q4.2014,sigma.x = Q414sd)
+
+## Part3: Engineering has collected data on alternative process costs for building transmissions in the worksheet Transmission Costs. Can you determine whether one of the proposed processes is better than the current process?  
+
+## CI for all the three process we got lowest range in process A so that is better than current process
+
+stddc=sd(tcost$Current)
+stdda=sd(tcost$Process.A)
+stddb=sd(tcost$Process.B)
+
+z.test(tcost$Current,sigma.x =stddc)
+z.test(tcost$Process.A,sigma.x =stdda)
+z.test(tcost$Process.B,sigma.x =stddb)
+
+## Part4:What would be a confidence interval for an additional sample of mower test performance as in the worksheet Mower Test?
+
+## convert pass fail into numerics
+
+a=data.frame(lapply(mtest,function(x)as.numeric(x)))
+str(a)
+##some of the samples containing only fail so changed them to pass
+a[,5]=2
+a[,10]=2
+a[,27]=2
+a[,30]=2
+length(which(a=="1"))
+##corrected the data so that Pass = 1 and Fail = 0 (rather than Pass = 2 and Fail = 1) by:
+a=a-1
+b=melt(a,id="Observation")
+str(b)
+mean(b$value)
+t.test(b$value,mu=0.982)
+1-0.9772398
+1-0.9867602
+## confidence interval for Pass = 0.9772398, 0.9867602 and for fail=0.0227602, 0.0132398
+
+
+
+## Part 5: For the data in the worksheet Blade Weight, what is the sampling distribution of the mean, the overall mean, and the standard error of the mean? Is a normal distribution an appropriate assumption for the sampling distribution of the mean?
+## t determine the distribution we use hist
+hist(Bladeweight$Weight) ## This shows normal distribution
+mean(Bladeweight$Weight)
+se=sd(Bladeweight$Weight)/sqrt(length(Bladeweight$Weight))
+se
+
+## to check the normality we make linear model of bladeweight data
+
+a=lm(Bladeweight$Weight~.,Bladeweight)
+plot(a)
+
+
+## Part6:How many blade weights must be measured to find a 95% confidence interval for the mean blade weight with a sampling error of at most 0.2? What if the sampling error is specified as 0.1?
+
+alpha=(0.05/2)
+z=qnorm(1-alpha)
+z
+
+n=(z)^2*((0.11)^2/(0.2)^2)
+n
+n1=(z)^2*((0.11)^2/(0.1)^2)
+n1
+
+## With sampling error of 0.2 we getting 1.16 and with rounding off its 2 samples and if sampling error changed to 0.1 samples are going to increase to 4.64 rounding off 5
+
+
+## Chapter 7
+
+## Part1: Are there significant differences in ratings of specific product/service attributes in the 2014CustomerSurvey.csv worksheet data file?
+
+CS2014=CS2014[,-1]
+data=t(CS2014)
+
+data1=melt(data,id.vars=var1)
+
+data1=data1[,-2]
+names(data1)=c("Category","Value")
+str(data1)
+fm1=aov(Value~Category,d=data1)
+anova(fm1)
+
+## Part2: In the worksheet data file OnTimeDelivery.csv, has the proportion of on-time deliveries in 2014 significantly improved since 2010?
+## check on time delivery proportion in 2010 and 2014
+otd10=sum(otd$Number.On.Time[1:12])/sum(otd$Number.of.deliveries[1:12])
+otd10
+otd14=sum(otd$Number.On.Time[49:60])/sum(otd$Number.of.deliveries[49:60])
+otd14
+## imprvement in on time deliveries observed in 2014 over 2010, now we will determine if this is signficant as per stats through hypothesis testing
+n=12
+z=(otd14-otd10)/sqrt(otd10*(1-otd10)/n)
+z
+alpha=.05
+zscore=qnorm(1-alpha)
+zscore
+## Because z value is not greater than z score we will not reject the null hypothesis and conclude that we cannot determine if there is  significant improvement in on time deliveries
+
+## another way is through p val
+
+pval=pnorm(z,lower.tail = FALSE)
+pval
+
+## again since p value is greater than 5% we will not reject the null hypothesis and cannot determine if there is  significant improvement in on time deliveries
+
+
+## Part3:Have the data in the worksheet data file DefectsAfterDelivery.csv changed significantly over the past 5 years?
+## plot mean of defects year on year
+
+dadbyyear=c(mean(dad$`2010`),mean(dad$`2011`),mean(dad$`2012`),mean(dad$`2013`),mean(dad$`2014`))
+dadbyyear
+plot(dadbyyear,type = "b",lwd=2,xlab = "Years",ylab = "Average of defects",main = "Defects After Delivery")
+
+a= matrix(dad$`2010`)
+
+b=matrix(dad$`2014`)
+
+t.test(a,b,var.equal = FALSE,paired = FALSE)
+
+
+## Part 4: Although engineering has collected data on alternative process costs for building transmissions in the worksheet data file TransmissionCosts.csv, why didn't they reach a conclusion as to whether one of the proposed processes is better than the current process?
+## To evaluate which process is best we run two sample t.test and compare process A and B with current
+
+t.test(tcost$Current,tcost$Process.A,alternative = "two.sided")
+t.test(tcost$Current,tcost$Process.B,alternative = "two.sided")
+
+##In both cases the p-value is greater than .05.so we can say that there is no better process comparing the current process 
+
+
+## Part 5: Are there differences in employee retention due to gender, college graduation status, or whether the employee is from the local area in the data in the worksheet data file EmployeeRetention.csv?
+
+## get data in format
+
+gender=Empret$Gender
+years=Empret$YearsPLE
+m.f=data.frame(gender=gender,years=years)
+m.f[order(m.f$gender),]
+t.test(m.f$years~m.f$gender,alternative="two.sided")
+
+## p-value is greater than .05 ,we conclude that there is no statistically significant difference between genders in terms of the number of years of service at PLE.
+
+## Chapter 8
+
+## Use techniques of regression analysis in evaluating the data in (Defects After Delivery,Employee retention,Engines)these three worksheets and reaching useful conclusions. Summarize your work in a formal report with all appropriate results and analyses.
+
+## Part1: Defects After Delivery
+
+## Step 1: Lets do the regression of the data before changes happened ie from 2010 to Aug 2011
+
+## combine the years 2010 and 2011 into a vector, then remove the last four values because I'm not including Sept to December 2011
+
+defold=c(dad$X2010,dad$X2011)
+defold=defold[1:20]  
+monthno.=c(1:20)
+## combine the month numbers and the number of defects into a matrix with two columns
+defold=matrix(c(monthno.,defold),ncol = 2)
+defold
+## use lm function to the regression 
+result=lm(defold[,2]~defold[,1])
+summary(result)
+## plot the data in a scatter plot, add the regression line
+plot(defold[,1],defold[,2],xlab = "Months",ylab = "No. of Defects",pch=18)
+abline(result,col="blue")
+
+## Step 2: Residual diagnostic plot to make sure all the assumptions are true;linearity,normality of errors,equal variance and independence
+
+## to run the xy plot function we need to run lattice package
+
+xyplot(resid(result)~fitted(result),
+       xlab = "Fitted Values",
+       ylab = "Residuals",
+       main="Residual Diaagnostic plot",
+       panel = function(x,y,...)
+       {
+         panel.grid(h=-1,v=-1)
+         panel.abline(h=0)
+         panel.xyplot(x,y,...)
+       }
+)
+## As per residual diagnostic plot we observe some periodicity in the mowers sales 
+
+
+##Part 2 : Defects After Delivery Continued..
+
+##Step 1: Now we will look at the data after change for remaining months till 2014
+
+defnew=c(dad$X2011,dad$X2012,dad$X2013,dad$X2014)
+defnew
+defnew=defnew[9:48]  
+monthnos=c(1:40)
+monthnos
+## combine the month numbers and the number of defects into a matrix with two columns
+defnew=matrix(c(monthnos,defnew),ncol = 2)
+## use lm function to the regression 
+results=lm(defnew[,2]~defnew[,1])
+summary(results)
+## The p-values for both the intercept and slope are very, very small. So, we reject the null hypothesis that there is no change in the number of defects and accept the alternative hypothesis that the change did make a difference in the number of defects. 
+
+## plot the data in a scatter plot, add the regression line
+plot(defnew[,1],defnew[,2],xlab = "Months",ylab = "No. of Defects",pch=18)
+abline(results,col="blue")
+
+
+
+## Residual diagnostic plot of data after changes
+
+xyplot(resid(results)~fitted(results),
+       xlab = "Fitted Values",
+       ylab = "Residuals",
+       main="Residual Diaagnostic plot",
+       panel = function(x,y,...)
+       {
+         panel.grid(h=-1,v=-1)
+         panel.abline(h=0)
+         panel.xyplot(x,y,...)
+       }
+)
+
+## here again results are cyclical
+
+## Now we will do the normal probability plot of residuals to look at the normality
+
+defnewres=rstandard(results)
+qqnorm(defnewres,xlab = "Normal Scores",ylab = "Standardized Residuals",main="Defects After Delivery",pch=19)
+qqline(defnewres,col="blue")
+
+## To evaluate the serial dependence we use Durbin watson test 
+## To execute durbin watson test we need to install lmtest package
+
+dwtest(results)
+
+## This shows that auto correlation does exist
+
+## Part 3 : Employee Retention
+
+## Step 1: Analyze Employee retention data and find out if there is any correlation in the variables
+## first We can convert categorical variables, e.g. gender, to numeric variables in order to conduct an analysis
+## convert Gender female =0, and male=1
+gen=as.numeric(Empret$Gender)-1
+str(gen)
+## convert college grad No =0, Yes =1
+colgrad=as.numeric(Empret$College.Grad)-1
+str(colgrad)
+## convert locals No =0, Yes=1
+loc=as.numeric(Empret$Local)-1
+str(loc)
+## Create a plot to explore how gender is related to the number of years at PLE and view it
+boxplot(gen,Empret$YearsPLE,main="Years at PLE by gender",xlab="Gender(Female-0, Male-1",ylab="Years at PLE")
+## look at the mean and standard deviation of the categorical value gender
+mean(gen)
+sd(gen)
+## Create a plot to explore how college graduation is related to the number of years at PLE and view it
+boxplot(colgrad,Empret$YearsPLE,main="Years at PLE by college grad",xlab="College grad(No-0, Yes-1",ylab="Years at PLE")
+## look at the mean and standard deviation of the categorical value college graduation
+mean(colgrad)
+sd(colgrad)
+## Create a plot to explore how locals is related to the number of years at PLE and view it
+boxplot(loc,Empret$YearsPLE,main="Years at PLE by Locals",xlab="Locals(No-0, Yes-1",ylab="Years at PLE")
+## look at the mean and standard deviation of the categorical value college graduation
+mean(loc)
+sd(loc)
+
+## create matrix of categorical value to look at how they are correlated
+catempret=matrix(c(gen,colgrad,loc),ncol = 3)
+colnames(catempret)=c("Gender","College Grad","Local")
+cor(catempret)
+##Analysis of categorical values indicates that there were as many male employees at PLE as there were college graduates. 
+## I found this because box plots were identical and their mean and std. deviation is same 
+
+## Now look into the numerical variables
+
+numempret=matrix(c(Empret$YearsPLE,Empret$YrsEducation,Empret$College.GPA,Empret$Age),ncol = 4)
+colnames(numempret)=c("Years PLE","Yrs education","college gpa","age")
+cor(numempret)
+## So, it looks like college GPA is correlated with years of education. To a lesser extent, age is correlated with years of education. 
+
+## we do linear regression of these variables to determine each independent variable on dependent variable
+regempret=lm(Empret$YearsPLE~Empret$YrsEducation+Empret$College.GPA+Empret$Age)
+summary(regempret)
+## it seems that Age is the only statistically significant variable when it comes to employee retention at PLE
+
+## we can view the residuals in residuals diagnostic plot to verify
+
+xyplot(resid(regempret)~fitted(regempret),
+       xlab = "Fitted Values",
+       ylab = "Residuals",
+       main="Residual Diaagnostic plot",
+       panel = function(x,y,...)
+       {
+         panel.grid(h=-1,v=-1)
+         panel.abline(h=0)
+         panel.xyplot(x,y,...)
+       }
+)
+
+## This shows that the residuals do not really have an equal variance across all fitted values
+
+## Linear regression after eliminating the data which is not significant
+reg1empret=lm(Empret$YearsPLE~Empret$Age)
+summary(reg1empret)
+
+## Which still shows that Age is statistically significant but explains very little of the variation in the data. 
+
+
+## Part 4:  Learning associated with adopting new technology
+
+## Step 1:
+
+## change the column name to "sample" and "Time"
+colnames(engines)=c("Sample","Time")
+## Scatter plot to look into the data
+par(mfrow=c(1,2))
+plot(engines$Sample,engines$Time)
+## when looked at the data last 30 points fit well in linear model then complete series of data
+plot(engines$Sample[20:50],engines$Time[20:50])
+## this looks little linear and see what we have we use linear model
+reg=lm(log(engines$Time[20:50])~engines$Sample[20:50])
+summary(reg)
+## We find that both the intercept and the slope are statistically significant. 
+## Residual diagnostic plot to check the normalitty
+par(mfrow=c(1,2))
+qqnorm(reg$residuals) ### normality assumtions
+qqline(reg$residuals,col="blue")
+rsp=plot(reg$fitted.values,reg$residuals,xlab = "Fitted",ylab = "Residuals",main="Residual Diagnostic plot")## normality assumptions
+abline(res,col="blue",h=0)
+## which is not showing a significant violation of the normality assumption.
+
+## 2nd order fit 
+m=lm(engines$Time~engines$Sample+I(engines$Sample^2))
+summary(m)
+par(mfrow=c(1,1))
+
+## Residual diagnostic plot
+plot(m,1)
+
+##production time(min) =3.99-0.0034*log(unit)
+
+
+## Chapter 9 
+
+## Part 1: Mower Sales
+
+## Plot data for mower sales in each marketing region as well as industry sales. Then, establish a method for use in predicting mower sales.
+colnames(musales)=c("Months","Year","North A","south A","Europe","Pacific","China","World")
+str(musales)
+## firstly lets put month and year together in Date variable to this we use paste()function
+df=data.frame(paste(musales$Months,musales$Year),musales$`North A`,musales$`south A`,musales$Europe,musales$Pacific,musales$China,musales$World)
+##rectify the col names
+colnames(df)=c("Date","North A","south A","Europe","Pacific","China","World")
+str(df)
+##  will do tick marks and labels on the x-axis. First, set up a data object for the number of tick marks I wanted every 6 months, then one for the labels. 
+c=seq(1,length(df$Date),6)
+ticks=c("Jan 10","Jun 10","Jan 11","Jun 11","Jan 12","Jun 12","Jan 13","Jun 13","Jan 14","Jun 14")
+## Now, we create the plot in separate pieces; 1) plot the data, 2) add the tick marks and labels, 3)add the y-axis grid, 4) add a custom grid to match tick marks and labels for every 6 months of data:
+
+## North America
+plot(df$`North A`,type = "b",xlab = "",xaxt="n",ylab = "North America",main = "Mowers sales by Region")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## South America
+plot(df$`south A`,type = "b",xlab = "",xaxt="n",ylab = "South America",main = "Mowers sales by Region")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## Europe
+plot(df$Europe,type = "b",xlab = "",xaxt="n",ylab = "Europe",main = "Mowers sales by Region")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## Pacific
+plot(df$Pacific,type = "b",xlab = "",xaxt="n",ylab = "Pacific",main = "Mowers sales by Region")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## China
+plot(df$China,type = "b",xlab = "",xaxt="n",ylab = "China",main = "Mowers sales by Region")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## World
+plot(df$World,type = "b",xlab = "",xaxt="n",ylab = "World",main = "Mowers sales by Region",col="blue")
+axis(1,at=c,labels = ticks,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## Tractor Sales
+
+colnames(Tusales)=c("Months","Year","North A","south A","Europe","Pacific","China","World")
+str(Tusales)
+## firstly lets put month and year together in Date variable to this we use paste()function
+df1=data.frame(paste(Tusales$Months,Tusales$Year),Tusales$`North A`,Tusales$`south A`,Tusales$Europe,Tusales$Pacific,Tusales$China,Tusales$World)
+##rectify the col names
+colnames(df1)=c("Date","North A","south A","Europe","Pacific","China","World")
+str(df1)
+##  will do tick marks and labels on the x-axis. First, set up a data object for the number of tick marks I wanted every 6 months, then one for the labels. 
+d=seq(1,length(df$Date),6)
+ticks1=c("Jan 10","Jun 10","Jan 11","Jun 11","Jan 12","Jun 12","Jan 13","Jun 13","Jan 14","Jun 14")
+## Now, we create the plot in separate pieces; 1) plot the data, 2) add the tick marks and labels, 3)add the y-axis grid, 4) add a custom grid to match tick marks and labels for every 6 months of data:
+
+## North America
+plot(df1$`North A`,type = "b",xlab = "",xaxt="n",ylab = "North America",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## South America
+plot(df1$`south A`,type = "b",xlab = "",xaxt="n",ylab = "South America",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## Europe
+plot(df1$Europe,type = "b",xlab = "",xaxt="n",ylab = "Europe",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## Pacific
+plot(df1$Pacific,type = "b",xlab = "",xaxt="n",ylab = "Pacific",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## China
+plot(df1$China,type = "b",xlab = "",xaxt="n",ylab = "China",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+## World
+plot(df1$World,type = "b",xlab = "",xaxt="n",ylab = "World",main = "Tractor sales by Region")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+
+
+## Part 2: Industry sales data for Mowers and Tractors
+
+
+## Mowers
+
+## changing header of the columns from Na to North A
+
+colnames(Inmots)=c("Month","North A","South A","Europe","Pacific","World")
+
+##  plotting North America, Europe and World regions together because they show seasonality without any trend. and plotting South America and Pacific regions together because they show seasonality with a trend.
+
+
+## North America, Europe and World
+
+par(oma=c(5,0,0,0))
+plot(Inmots$`North A`,type = "b",xlab = "",xaxt="n",ylab = "Sales",main = "Industry Mower Sales")
+par(new=TRUE)
+plot(Inmots$Europe,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="blue")
+par(new=TRUE)
+plot(Inmots$World,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="red")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+par(xpd=NA)
+legend(x=10,legend = c("North A","Europe","World"),horiz = TRUE,lwd=3,col=c("black","blue","red"),cex=0.5)
+
+
+## South America and Pacific
+
+par(oma=c(5,0,0,0))
+plot(Inmots$`South A`,type = "b",xlab = "",xaxt="n",ylab = "Sales",main = "Industry Mower Sales")
+par(new=TRUE)
+plot(Inmots$Pacific,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="blue")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+par(xpd=NA)
+legend(x=0,y=1,legend = c("South A","Pacific"),horiz = TRUE,lwd=3,col=c("black","blue"),cex=0.5)
+
+## prediction of seasonal data with no trend (North A, Europe & World)
+
+## Firstly set up a data object with the mower sales data from the North America and so on region and plotted it:
+
+## North America
+demand=ts(musales[,3],start = c(2010,1),frequency = 12)
+plot(demand)
+## use holtwinter function for prediction
+hw=HoltWinters(demand)
+forecast=predict(hw,n.ahead = 12,prediction.interval = TRUE,level = 0.95)## where the number of months ahead is 12 and the significance level is .05.
+forecast
+plot(hw,forecast)
+
+## Europe
+demand1=ts(musales[,5],start = c(2010,1),frequency = 12)
+plot(demand1)
+## use holtwinter function for prediction
+hw1=HoltWinters(demand1)
+forecast1=predict(hw1,n.ahead = 12,prediction.interval = TRUE,level = 0.95)## where the number of months ahead is 12 and the significance level is .05.
+forecast1
+plot(hw1,forecast1)
+
+## World
+demand2=ts(musales[,8],start = c(2010,1),frequency = 12)
+plot(demand2)
+## use holtwinter function for prediction
+hw2=HoltWinters(demand2)
+forecast2=predict(hw2,n.ahead = 12,prediction.interval = TRUE,level = 0.95)## where the number of months ahead is 12 and the significance level is .05.
+forecast2
+plot(hw2,forecast2)
+
+
+## Predicting seasonal data with trend
+## Holt winte additive function for prediction
+
+## South A
+demand3=ts(musales[,4],start = c(2010,1),frequency = 12)
+plot(demand3)
+## use holtwinter additive function for prediction
+hw3=HoltWinters(demand3,seasonal = "additive")
+forecast3=predict(hw3,n.ahead = 12,prediction.interval = TRUE,level = 0.95)## where the number of months ahead is 12 and the significance level is .05.
+forecast3
+plot(hw3,forecast3)
+
+## Pacific
+demand4=ts(musales[,6],start = c(2010,1),frequency = 12)
+plot(demand4)
+## use holtwinter additive function for prediction
+hw4=HoltWinters(demand4,seasonal = "additive")
+forecast4=predict(hw4,n.ahead = 12,prediction.interval = TRUE,level = 0.95)## where the number of months ahead is 12 and the significance level is .05.
+forecast4
+plot(hw4,forecast4)
+
+
+
+## Tractors
+
+## changing header of the columns from Na to North A
+
+colnames(Intts)=c("Month","North A","South A","Europe","Pacific","World")
+
+##  plotting North America, South America and World regions together because they show seasonality without any trend. and plotting Europe and Pacific regions together because they show seasonality with a trend.
+
+
+## North America, South America and World
+
+par(oma=c(5,0,0,0))
+plot(Intts$`North A`,type = "b",xlab = "",xaxt="n",ylab = "Sales",main = "Industry Tractor Sales")
+par(new=TRUE)
+plot(Intts$`South A`,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="blue")
+par(new=TRUE)
+plot(Intts$World,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="red")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+par(xpd=NA)
+legend(x=10,y=-800,legend = c("North","South","Europe"),horiz = TRUE,lwd=3,col=c("black","blue","red"),cex=0.5)
+
+
+## Europe and Pacific
+
+par(oma=c(1,0,0,0))
+plot(Intts$Europe,type = "b",xlab = "",xaxt="n",ylab = "Sales",main = "Industry Mower Sales")
+par(new=TRUE)
+plot(Intts$Pacific,type = "b",xlab = "",xaxt="n",ylab ="",yaxt="n",col="blue")
+axis(1,at=d,labels = ticks1,las=2)## x axis with pre defined ticks
+grid(NA,NULL,lty = 2)## Adding grid to plot
+abline(v=seq(1, length(df$Date), 6), lty=2, col="lightgray")## vertical grid line
+par(xpd=NA)
+legend(x=0,y=1,legend = c("North","South","Europe"),horiz = TRUE,lwd=3,col=c("black","blue"),cex=0.5)
+
+
+## prediction of seasonal data using Decompose function (North A, South A & World)
+
+
+## Firstly set up a data object with the tractor sales data from the North America and so on region and plotted it:
+
+## North America
+demand5=ts(Tusales[,3],start = c(2010,1),frequency = 12)
+plot(demand5)
+## use decompose function for prediction
+decomp=decompose(demand5)
+decomp$seasonal
+#The estimated seasonal factors are given for the months January-December, and are the same for each year. The largest seasonal factor is for May (about 288.84), and the lowest is for Dec (about -303.21), indicating that there seems to be a peak in sales in May and a trough in Sales in Dec each year.
+plot(decomp)
+## Seasonally adjusting
+adjdemand=demand5-decomp$seasonal
+plot(adjdemand)
+## Seasonal variation has been removed from the seasonally adjusted time series. The seasonally adjusted time series now just contains the trend component and an irregular component.
+
+
+## South America
+demand6=ts(Tusales[,4],start = c(2010,1),frequency = 12)
+plot(demand6)
+## use decompose function for prediction
+decomp1=decompose(demand6)
+decomp1$seasonal
+#The estimated seasonal factors are given for the months January-December, and are the same for each year. The largest seasonal factor is for Jun (about 56.02), and the lowest is for Dec (about -82.23), indicating that there seems to be a peak in sales in Jun and a trough in Sales in Dec each year.
+plot(decomp1)
+
+## World
+demand7=ts(Tusales[,8],start = c(2010,1),frequency = 12)
+plot(demand7)
+## use decompose function for prediction
+decomp2=decompose(demand7)
+decomp2$seasonal
+#The estimated seasonal factors are given for the months January-December, and are the same for each year. The largest seasonal factor is for Jun (about 411.27), and the lowest is for Dec (about -435.36), indicating that there seems to be a peak in sales in Jun and a trough in Sales in Dec each year.
+plot(decomp2)
+
+
+## prediction of non seasonal data using Decompose function (Europe & Pacific)
+
+## for non seasonal data first to smooth the time series we calculate the simple moving average of time series to do that we have to install package TTR
+
+## Europe
+demand8=ts(Tusales[,5],start = c(2010,1),frequency = 12)
+plot(demand8)
+## using SMA fucntion to smooth the time series
+smoothdem=SMA(demand8,n=7)
+smoothdem
+plot(smoothdem)
+## The data smoothed with a simple moving average of order 7 gives a clearer picture of the trend component, and we can see that the unit sales of tractors seems to have increased from about 625 in 2010 to about 750 till mid of 2012 , and then decreased after that to about 550 by the end of 2014 in the time series.
+## use decompose function for prediction
+decomp3=decompose(smoothdem)
+decomp3$seasonal
+plot(decomp3)
+
+## Pacific
+demand9=ts(Tusales[,6],start = c(2010,1),frequency = 12)
+plot(demand9)
+## use decompose function for prediction
+smoothdem1=SMA(demand9,n=5)
+plot(smoothdem1)
+## The data smoothed with a simple moving average of order 5 gives a clearer picture of the trend component, and we can see that the unit sales of tractors seems to have increased from about 245 in 2010 to about 330 till 4th qtr of 2013, and then decreased after that to about 210 by the end of 2014 in the time series.
+
+decomp4=decompose(smoothdem1)
+decomp4$seasonal
+plot(decomp4)
+
+
+## Part 3- Production Costs
+## Plot data for mower and tractor production costs. Then, establish a method for use in predicting future costs
+## Step 1 - Tractors
+## requires developing a linear model for the data using the lm()function in R and then printing out the summary. This gives you the intercept and slope of the regression line and hence the equation to use for forecasting future production costs. 
+## plot up the data to see what we had. Then, set-up a separate data object for the number of months, 1 through and including 60. Then use lm() and summary() as follows for tractor production costs:
+  
+plot(upcost$Tractor)
+monthid=c(1:60)
+monthid
+
+trctr=lm(upcost$Tractor~monthid)
+summary(trctr)
+
+abline(trctr,col="blue",lwd=2)
+
+## Step 2 - Mowers
+
+plot(upcost$Mower)
+monthid1=c(1:60)
+
+Mower=lm(upcost$Mower~monthid1)
+summary(Mower)
+
+abline(Mower,col="blue",lwd=2)
+
+
+## Chapter 13
+
+## Formulate and solve a linear optimization model and recommend a production plan. Illustrate the results visually. In addition, conduct whatever what-if analyses (e.g., run different scenarios and apply parameter analysis) you feel are appropriate to include. Summarize your results in a well-written report. 
+
+## Step 1
+
+## Defining Variables
+
+#???## Production rates (time in hours)- 0.33 hrs /Mower housing & 0.33 hrs/Tractor housing 
+???## Production hours available (time in hours)- 1120 hrs
+???### Metal required for mower housings (square feet)- 1.2 sqf/unit
+???### Metal required for tractor housings (square feet)- 1.8 sqf/unit
+???### Amount of sheet metal available (square feet)- 2500 sqf
+## MH(Mower Housing) - 3.03/hr
+## TH (Tarctor Housing) - 3.03/hr
+
+## Step 2
+
+## Defining equation - 
+
+## Stamping - .03 MH + .07 TH <=200
+## Drilling - .09 MH + .06 TH <=300
+## Assembly - .12 MH + .10 TH <=300 
+## Painting - .04 MH + .06 TH <=220
+## Packaging - .02 MH + .06 TH <=100
+## Sheet Metal - 1.2 MH + 1.8 TH <=2500
+## MH,TH>=0
+
+## Obective : Maximize MH + TH
+
+## Step 3
+
+##  we set-up the linear optimization (or linear programming) problem
+
+## To intialize LMPO (Liniear programming obect) we need to install lpsolveAPI package
+
+lprec=make.lp(6,2)
+set.column(lprec,1,c(.03,.09,.15,.04,.02,1.2)) ## column to setup a data in LMPO
+set.column(lprec,2,c(.07,.06,.10,.06,.06,1.8))
+set.objfn(lprec,c(1,1))## information for objective function
+set.constr.type(lprec,c("<=","<=","<=","<=","<=","<=")) ## info about constraint type
+set.rhs(lprec,c(200,300,300,220,100,2500)) ## defining constraints RHS
+lp.control(lprec,sense="max") ## setting up linear programming control to maximize the obective function
+## defining col names, row names and dimensions
+colnames=c("MH","TH")
+rownames=c("Stamping","Drilling","Assembly","Painting","Packaging","Sheet Metal")
+dimnames(lprec)=list(rownames,colnames)
+## call the problem lprec
+lprec
+
+## Solving problem
+
+solve(lprec) ## The return of "0" indicates that the linear programming problem successfully ran and the solution is available
+
+## To get the solution we can view the total for the objective function and for each of the variables; MH and TH as follows:
+  
+get.objective(lprec)
+get.variables(lprec)
+
+## So to maximize results we need to produce 1933.33 MH and 100 TH
+
+get.constraints(lprec) ## we can get the values of constraints to maximize the output
+
+## graphical Solution
+
+c=c(1,1)
+bm=c(2500)
+m=c(1.2,1.8)
+
+BM=c(200,300,300,220,100)
+M=rbind(c(.03,.07),c(.09,.06),c(.15,.1),c(.04,.06),c(.02,.06))
+y=solve2dlp(t=1,c=c,bm=BM,m=M,M=m,bM=bm)
+
+library(lpSolveAPI)
+library(lpSolve)
